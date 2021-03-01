@@ -7,7 +7,7 @@
 
 import Foundation
 
-class InputValidator: NSObject {
+public class InputValidator: NSObject {
 
     public var isAllFieldsValid: Bool { return validateAllSources() }
     

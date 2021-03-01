@@ -7,11 +7,11 @@
 
 import Foundation
 
-enum ValidationPattern: String {
+public enum ValidationPattern: String {
     case email
     case password
     
-    func getRegexes(in plist: String, bundle:Bundle) -> String {
+    public func getRegexes(in plist: String, bundle:Bundle) -> String {
         var nsDictionary: NSDictionary?
         if let plistPath = bundle.path(forResource: plist, ofType: "plist") {
             nsDictionary = NSDictionary(contentsOfFile: plistPath)

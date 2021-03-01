@@ -46,6 +46,6 @@ open class InputFieldValidator: InputFieldSource {
         return result
     }
     
-    func onFieldValidationSucceed(field: UITextField) {}
-    func onFieldValidationFailed(field: UITextField) {}
+    open func onFieldValidationSucceed(field: UITextField) {}
+    open func onFieldValidationFailed(field: UITextField) {}
 }
