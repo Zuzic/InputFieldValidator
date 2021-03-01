@@ -11,13 +11,12 @@ public enum ValidationPattern: String {
     case email
     case password
     
-    public func getRegexes(in plist: String, bundle:Bundle) -> String {
-        var nsDictionary: NSDictionary?
-        if let plistPath = bundle.path(forResource: plist, ofType: "plist") {
-            nsDictionary = NSDictionary(contentsOfFile: plistPath)
-            return nsDictionary?[self.rawValue] as? String ?? ""
+    public func getRegexes(path: String?) -> String {
+        guard let plistPath =  path,
+              let nsDictionary = NSDictionary(contentsOfFile: plistPath) else {
+            return ""
         }
         
-        return ""
+        return nsDictionary[self.rawValue] as? String ?? ""
     }
 }

@@ -11,12 +11,12 @@ import UIKit
 open class InputFieldValidator: InputFieldSource {
     
     public var isAutoValidationEnabled: Bool = true
-    public var validationRegexes: String? {
+    open var validationRegexes: String? {
         guard let pattern = ValidationPattern(rawValue: validationKey) else {
             return nil
         }
-        let bundle = Bundle(for: Bundle.self)
-        return pattern.getRegexes(in: "TextRegexes", bundle: bundle)
+        let regexesURL = Bundle.module.url(forResource: "TextRegexes", withExtension: "plist")
+        return pattern.getRegexes(path: regexesURL?.path)
     }
     
     public final override var isValid: Bool { return validateField(outerTextField, forceValidation: true) }
