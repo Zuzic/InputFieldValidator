@@ -7,7 +7,7 @@
 
 import Foundation
 
-public enum ValidationPattern: String {
+open enum ValidationPattern: String {
     case email
     case password
     
