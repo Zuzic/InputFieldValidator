@@ -6,11 +6,12 @@
 //
 
 import Foundation
+//MARK: - Protocol
+public protocol ValidationPatternProtocol: RawRepresentable {
+    func getRegexes(path: String?) -> String
+}
 
-open enum ValidationPattern: String {
-    case email
-    case password
-    
+extension ValidationPatternProtocol {
     public func getRegexes(path: String?) -> String {
         guard let plistPath =  path,
               let nsDictionary = NSDictionary(contentsOfFile: plistPath) else {
@@ -19,4 +20,10 @@ open enum ValidationPattern: String {
         
         return nsDictionary[self.rawValue] as? String ?? ""
     }
+}
+
+//MARK: - Class
+public enum ValidationPattern: String, ValidationPatternProtocol {
+    case email
+    case password
 }
