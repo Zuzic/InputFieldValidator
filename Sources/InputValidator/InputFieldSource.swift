@@ -20,7 +20,7 @@ open class InputFieldSource: NSObject {
     open func editingDidBegin() {}
     open func editingDidEnd(text: String?) {}
     open func clearTextField() -> Bool { return true }
-    open func editing(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool { return false }
+    open func editing(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool { return true }
     
     public required init(textField: UITextField?) {
         self._innerTextField = textField
