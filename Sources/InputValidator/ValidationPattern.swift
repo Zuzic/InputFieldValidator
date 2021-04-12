@@ -24,6 +24,7 @@ extension ValidationPatternProtocol {
 
 //MARK: - Class
 public enum ValidationPattern: String, ValidationPatternProtocol {
+    case none
     case email
     case password
 }

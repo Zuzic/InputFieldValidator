@@ -12,11 +12,11 @@ open class InputFieldValidator: InputFieldSource {
     
     public var isAutoValidationEnabled: Bool = true
     open var validationRegexes: String? {
-        guard let pattern = ValidationPattern(rawValue: validationKey) else {
+        guard validationKey != .none else {
             return nil
         }
         let regexesURL = Bundle.module.url(forResource: "TextRegexes", withExtension: "plist")
-        return pattern.getRegexes(path: regexesURL?.path)
+        return validationKey.getRegexes(path: regexesURL?.path)
     }
     
     public final override var isValid: Bool { return validateField(outerTextField, forceValidation: true) }
@@ -27,7 +27,7 @@ open class InputFieldValidator: InputFieldSource {
         }
     }
     
-    open var validationKey: String { return "" }
+    open var validationKey: ValidationPattern { return .none }
     open func validateField(_ textField: UITextField?, forceValidation: Bool) -> Bool {
         guard
             let txt = textField?.text,
