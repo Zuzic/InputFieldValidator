@@ -8,7 +8,6 @@
 import Foundation
 //MARK: - Protocol
 public protocol ValidationPatternProtocol: RawRepresentable {
-    var  value: String { get }
     func getRegexes(path: String?) -> String
 }
 
@@ -25,11 +24,6 @@ extension ValidationPatternProtocol {
 
 //MARK: - Enum
 public enum ValidationPattern: String, ValidationPatternProtocol {
-    public var value: String {
-        return self.rawValue
-    }
-    
-    case none
     case email
     case password
 }
