@@ -11,7 +11,7 @@ public class InputValidator: NSObject {
 
     public var isAllFieldsValid: Bool { return validateAllSources() }
     
-    private(set) var sources: [InputFieldSource] = []
+    public private(set) var sources: [InputFieldSource] = []
     
     public func addField(source: InputFieldSource) {
         sources.append(source)
