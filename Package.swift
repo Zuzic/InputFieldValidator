@@ -13,6 +13,7 @@ let package = Package(
             name: "InputValidator",
             targets: ["InputValidator"]),
     ],
+    dependencies: [],
     targets: [
         .target(
             name: "InputValidator",
